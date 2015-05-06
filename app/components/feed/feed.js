@@ -7,6 +7,6 @@
 
 		function HelloWorldController(){
 			var vm = this;
-			vm.greeting = 'Hello Cat!';
+			vm.greeting = 'Hello World!';
 		}
 })();

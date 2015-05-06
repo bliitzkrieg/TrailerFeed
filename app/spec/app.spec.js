@@ -4,18 +4,22 @@ describe('see if Hello World appears', function() {
 
 	beforeEach(module('app'));
 
-	var HelloWorldController,
-	scope;
+    var scope, createController;
 
-	beforeEach(inject(function ($rootScope, $controller) {
-		scope = $rootScope.$new();
-		HelloWorldController = $controller('HelloWorldController', {
-			$scope: scope
-		});
-	}));
-	
+    beforeEach(inject(function($rootScope, $controller) {
+        scope = $rootScope.$new();
+
+        createController = function() {
+            return $controller('HelloWorldController', {
+                '$scope': scope
+            });
+        };
+    }));
+
+
 	it('says hello world!', function () {
-		expect(scope.greeting).toEqual("Hello World!");
+		var controller = createController();
+		expect(controller.greeting).toEqual("Hello World!");
 	});
 
 });
