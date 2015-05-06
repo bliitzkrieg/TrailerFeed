@@ -13,6 +13,7 @@ describe('see if Hello World appears', function() {
 			$scope: scope
 		});
 	}));
+	
 	it('says hello world!', function () {
 		expect(scope.greeting).toEqual("Hello World!");
 	});

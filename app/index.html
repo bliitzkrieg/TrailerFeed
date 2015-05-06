@@ -4,19 +4,25 @@
 		<title>Trailer Feed</title>
 		<!-- Stylesheets -->
 		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="assets/css/main.css">
 	</head>
 	<body>
 
-		<div>
-			<h1>Hello There</h1>
+		<div ng-controller="HelloWorldController as vm">
+			<span>{{vm.greeting}}</span>
 		</div>
 
 
-		<!-- Scripts -->
+		<!-- Vendor -->
 		<script src="lib/jquery/dist/jquery.min.js"></script>
 		<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="lib/angular/angular.min.js"></script>
 		<script src="lib/angular-route/angular-route.js"></script>
+
+		<!-- Bootstrapping -->
 		<script type="text/javascript" src="app.js"></script>
+
+		<!-- Core -->
+		<script type="text/javascript"src="components/feed/feed.js"></script>
 	</body>
 </html>

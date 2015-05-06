@@ -1,10 +1,9 @@
-'use strict';
-
 (function(){
-	var app = angular.module('app', [ ]);
+	'use strict';
 
-	app.controller('HelloWorldController', ['$scope', function($scope) {
-		$scope.greeting = 'Hello World!';
-	}]);
+	angular
+		.module('app', [ 
+			'ngRoute'
+		 ]);
 
 })();
