@@ -1,28 +1,57 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html lang="en" ng-app="app">
 	<head>
-		<title>Trailer Feed</title>
+		<title>Popcorn Feed</title>
 		<!-- Stylesheets -->
-		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="assets/css/main.css">
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
 	</head>
 	<body>
-
 		<div ng-controller="HelloWorldController as vm">
 			<span>{{vm.greeting}}</span>
 		</div>
 
+		<popcorn-header></popcorn-header>
+
+		<!-- Page Content -->
+	    <div class="container">
+
+	        <div class="row">
+	            <div class="col-lg-12 text-center">
+
+	            	<!-- View -->
+	            	<ng-view></ng-view>
+
+	            </div>
+	        </div>
+
+	    </div>
+	    <!-- /.container -->
 
 		<!-- Vendor -->
 		<script src="lib/jquery/dist/jquery.min.js"></script>
 		<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="lib/angular/angular.min.js"></script>
-		<script src="lib/angular-route/angular-route.js"></script>
+		<script src="lib/angular-route/angular-route.min.js"></script>
+		<script src="lib/angular-animate/angular-animate.min.js"></script>
+
+		<!-- Routes -->
+		<script type="text/javascript" src="routes.js"></script>
 
 		<!-- Bootstrapping -->
 		<script type="text/javascript" src="app.js"></script>
 
 		<!-- Core -->
 		<script type="text/javascript"src="components/feed/feed.js"></script>
+		<script type="text/javascript"src="components/feed/feedController.js"></script>
+		<script type="text/javascript"src="components/header/header.js"></script>
+
+		<!-- Feats -->
+
 	</body>
 </html>
