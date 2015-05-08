@@ -8,7 +8,7 @@
 		function popcornHeader(){
 			var directive = {
 				restrict: 'E',
-				templateUrl:'components/header/_header.html'
+				templateUrl:'components/header/header.html'
 			}
 			return directive;
 		}
