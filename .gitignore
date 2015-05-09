@@ -1,3 +1,6 @@
 /node_modules
 /app/lib
 .idea
+.sass-cache
+/app/dist
+/app/assets/css
