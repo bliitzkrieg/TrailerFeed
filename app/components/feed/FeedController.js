@@ -2,12 +2,14 @@
 	
 	angular
 		.module('app.feed')
-		.controller('HelloWorldController', HelloWorldController);
+		.controller('FeedController', FeedController);
 
 
-		function HelloWorldController(){
+		function FeedController(){
 			var vm = this;
-			vm.greeting = 'Hello World!';
+			vm.videoID = 'dQw4w9WgXcQ'; // Get from API via factory
+			vm.title = "Rick Astley - Never Gonna Give You Up" // Get from API via factory
+			vm.length = "3:32" // Get from API via factory
 		}
 
 })();

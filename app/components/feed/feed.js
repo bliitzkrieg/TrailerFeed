@@ -1,6 +1,8 @@
 (function(){
 	
 	angular
-		.module('app.feed', []);
+		.module('app.feed', [
+			'youtube-embed'
+		]);
 
 })();
