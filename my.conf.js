@@ -12,16 +12,6 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
-    preprocessors: {
-        'app/components/**/*.html': ['ng-html2js']
-    },
-
-    ngHtml2JsPreprocessor: {
-        // strip this from the file path
-        stripPrefix: 'app',
-        moduleName: 'app'
-    },
-
     // list of files / patterns to load in the browser
     files: [
       'app/lib/angular/angular.js',
@@ -35,6 +25,16 @@ module.exports = function(config) {
       'app/components/feed/FeedController.js',
       'app/components/**/*.js'
     ],
+
+    preprocessors: {
+        'app/components/**/*.html': ['ng-html2js']
+    },
+
+    ngHtml2JsPreprocessor: {
+        // strip this from the file path
+        stripPrefix: 'app/',
+        moduleName: 'app'
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
