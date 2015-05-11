@@ -26,6 +26,11 @@ module.exports = function(config) {
       'app/components/**/*.js'
     ],
 
+    // test results reporter to use
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['progress'],
+
     preprocessors: {
         'app/components/**/*.html': ['ng-html2js']
     },
@@ -35,12 +40,6 @@ module.exports = function(config) {
         stripPrefix: 'app/',
         moduleName: 'app'
     },
-
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
-
 
     // web server port
     port: 9876,
@@ -67,7 +66,8 @@ module.exports = function(config) {
             'karma-jasmine',
             'karma-phantomjs-launcher',
             'karma-chrome-launcher',
-            'karma-firefox-launcher'
+            'karma-firefox-launcher',
+            'karma-ng-html2js-preprocessor'
             ],
 
     // Continuous Integration mode

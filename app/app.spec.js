@@ -4,20 +4,20 @@ describe('Layout Check', function() {
 
 	beforeEach(module('app'));
 
-    var scope, compile, createController;
+    var scope, compile, elm;
 
     beforeEach(inject(function($rootScope, $compile) {
         scope = $rootScope.$new();
         compile = $compile;
+        elm = angular.element('<popcorn-header></popcorn-header>');
+        $compile(elm)(scope);
+        scope.$digest();
     }));
 
     describe('Check if header exists', function(){
         it('should have header element', function(){
-            var template = compile("<popcorn-header></popcorn-header>")(scope);
-            scope.$digest();
-            var templateAsHtml = template.html();
-            expect(templateAsHtml).toContain("navbar navbar-inverse navbar-fixed-top");
+            var contents = elm.find('nav.navbar');
+            expect(contents.length);
         });
     });
-
 });
