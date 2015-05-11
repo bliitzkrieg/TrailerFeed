@@ -1,25 +1,23 @@
 'use strict';
 
-describe('see if Hello World appears', function() {
+describe('Layout Check', function() {
 
 	beforeEach(module('app'));
 
-    var scope, createController;
+    var scope, compile, createController;
 
-    beforeEach(inject(function($rootScope, $controller) {
+    beforeEach(inject(function($rootScope, $compile) {
         scope = $rootScope.$new();
-
-        createController = function() {
-            return $controller('HelloWorldController', {
-                '$scope': scope
-            });
-        };
+        compile = $compile;
     }));
 
-
-	it('says hello world!', function () {
-		var controller = createController();
-		expect(controller.greeting).toEqual("Hello World!");
-	});
+    describe('Check if header exists', function(){
+        it('should have header element', function(){
+            var template = compile("<popcorn-header></popcorn-header>")(scope);
+            scope.$digest();
+            var templateAsHtml = template.html();
+            expect(templateAsHtml).toContain("navbar navbar-inverse navbar-fixed-top");
+        });
+    });
 
 });

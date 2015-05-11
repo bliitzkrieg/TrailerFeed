@@ -12,15 +12,28 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
+    preprocessors: {
+        'app/components/**/*.html': ['ng-html2js']
+    },
+
+    ngHtml2JsPreprocessor: {
+        // strip this from the file path
+        stripPrefix: 'app',
+        moduleName: 'app'
+    },
 
     // list of files / patterns to load in the browser
     files: [
       'app/lib/angular/angular.js',
       'app/lib/angular-route/angular-route.js',
       'app/lib/angular-mocks/angular-mocks.js',
+      'app/lib/angular-youtube-mb/dist/angular-youtube-embed.min.js',
+      'app/lib/angular-animate/angular-animate.min.js',
       'app/app.js',
-      'app/components/**/*.js',
-      'app/spec/*.js'
+      'app/app.spec.js',
+      'app/components/feed/feed.js',
+      'app/components/feed/FeedController.js',
+      'app/components/**/*.js'
     ],
 
     // test results reporter to use
