@@ -2,7 +2,8 @@
 	
 	angular
 		.module('app.feed', [
-			'youtube-embed'
+			'youtube-embed',
+			'app.api'
 		]);
 
 })();
