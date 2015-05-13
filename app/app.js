@@ -3,7 +3,7 @@
 
 	angular
 		.module('app', [ 
-			'ngRoute',
+			'ui.router',
 			'ngAnimate',
 			'app.feed'
 		 ]);

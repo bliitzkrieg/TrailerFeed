@@ -20,6 +20,7 @@ module.exports = function(config) {
       'app/lib/angular-youtube-mb/dist/angular-youtube-embed.min.js',
       'app/lib/angular-animate/angular-animate.min.js',
       'app/lib/angular-resource/angular-resource.min.js',
+      'app/lib/angular-ui-router/release/angular-ui-router.min.js',
 
       'app/components/**/*.html',
 

@@ -5,14 +5,14 @@
 		.module('app')
 		.config(config);
 
-	function config($routeProvider){
-		$routeProvider
-			.when('/', {
-				templateUrl: 'partials/home.html'
-			})
-			.otherwise( { 
-				redirectTo: "/" 
-			});
-	}
+	function config($stateProvider, $urlRouterProvider){
 
+		$urlRouterProvider.otherwise("/");
+
+		$stateProvider
+		    .state('index', {
+		      		url: "/",
+		      		templateUrl: "partials/home.html"
+		})
+	}
 })();
