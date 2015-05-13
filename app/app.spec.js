@@ -2,7 +2,7 @@
 
 describe('Layout Check', function() {
 
-	beforeEach(module('app'));
+    beforeEach(module('app'));
     beforeEach(angular.mock.module('templates'));
 
     var scope, compile, elm;
