@@ -19,17 +19,19 @@ module.exports = function(config) {
       'app/lib/angular-mocks/angular-mocks.js',
       'app/lib/angular-youtube-mb/dist/angular-youtube-embed.min.js',
       'app/lib/angular-animate/angular-animate.min.js',
+      'app/lib/angular-resource/angular-resource.min.js',
+
+      'app/components/**/*.html',
+
       'app/app.js',
       'app/app.spec.js',
+      'app/components/api/api.js',
+      'app/constants.js',
+      'app/components/api/ApiFactory.js',
       'app/components/feed/feed.js',
       'app/components/feed/FeedController.js',
       'app/components/**/*.js'
     ],
-
-    // test results reporter to use
-    // possible values: 'dots', 'progress'
-    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
 
     preprocessors: {
         'app/components/**/*.html': ['ng-html2js']
@@ -38,8 +40,15 @@ module.exports = function(config) {
     ngHtml2JsPreprocessor: {
         // strip this from the file path
         stripPrefix: 'app/',
-        moduleName: 'app'
+        stripSufix: '.js',
+        moduleName: 'templates'
     },
+
+    // test results reporter to use
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['progress'],
+
 
     // web server port
     port: 9876,

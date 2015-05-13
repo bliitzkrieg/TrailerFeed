@@ -3,6 +3,7 @@
 describe('Layout Check', function() {
 
 	beforeEach(module('app'));
+    beforeEach(angular.mock.module('templates'));
 
     var scope, compile, elm;
 
@@ -16,8 +17,7 @@ describe('Layout Check', function() {
 
     describe('Check if header exists', function(){
         it('should have header element', function(){
-            var contents = elm.find('nav.navbar');
-            expect(contents.length);
+            expect(elm.find('nav').length).toEqual(1);
         });
     });
 });
