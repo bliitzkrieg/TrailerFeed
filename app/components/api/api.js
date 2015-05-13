@@ -2,6 +2,7 @@
 	
 	angular
 		.module('app.api', [
+			'ngResource'
 		]);
 
 })();

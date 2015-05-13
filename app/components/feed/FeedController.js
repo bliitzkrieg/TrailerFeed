@@ -4,35 +4,23 @@
 		.module('app.feed')
 		.controller('FeedController', FeedController);
 
-		FeedController.$inject = ['apiservice', '$scope'];
+		FeedController.$inject = ['$scope', 'apiservice'];
 
-		function FeedController(apiservice, $scope){
+		function FeedController($scope, apiservice){
 			var vm = this;
-			vm.trailers = [];
+			vm.trailer;
+			vm.id = 1;
 
-			initiate().then(function(){
-				vm.videoID = vm.trailers[0].video;
-				vm.title = vm.trailers[0].title;
-				vm.length = vm.trailers[0].length;
-			});
+			getTrailer(vm.id);
 
-			function initiate(){
-				return getTrailers();
-			}
-
-			function getTrailers(){
-				return apiservice.getTrailers()
-					.then(function(data){
-						vm.trailers = data;
-						return vm.trailers;
-					});
-			}
+			function getTrailer(userID){
+				vm.trailer = apiservice.get({user: userID});
+			};
 
 			$scope.$on('youtube.player.ended', function ($event, player) {
-				//Hardcoded for now
-			    vm.videoID = 'dQw4w9WgXcQ'; // Get from API via factory
-				vm.title = "Rick Astley - Never Gonna Give You Up"; // Get from API via factory
-				vm.length = "3:32"; // Get from API via factory
+				//Todo: Change to get 10, cycle through & add pagination to API
+				vm.id = vm.id + 1;
+				getTrailer(vm.id);
 
 				$scope.vars = {
 					autoplay: 1

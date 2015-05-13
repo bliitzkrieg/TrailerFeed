@@ -4,36 +4,23 @@ describe('see if a wild youtube appears', function() {
 
 	beforeEach(module('app.feed'));
 
-    var scope, createController;
-
-    beforeEach(inject(function($rootScope, $controller) {
-        scope = $rootScope.$new();
-
-        createController = function() {
-            return $controller('FeedController', {
-                '$scope': scope
-            });
-        };
-    }));
-
     describe('see if there is a youtube video id', function(){
-        it('should have a youtube id', function(){
-            var controller = createController();
-            expect(controller.videoID).toEqual("dQw4w9WgXcQ");
-        });
-    });
-
-    describe('see if there is a youtube video title', function(){
-        it('should have a youtube title', function(){
-            var controller = createController();
-            expect(controller.title).toEqual("Rick Astley - Never Gonna Give You Up");
-        });
-    });
-
-    describe('see if there is a youtube video length', function(){
-        it('should have a youtube video length', function(){
-            var controller = createController();
-            expect(controller.length).toEqual("3:32");
-        });
+        it('should equal same as mock db call', 
+            inject(function(_$httpBackend_, $rootScope, $controller) {
+                var scope = $rootScope.$new();
+                var mockBackend = _$httpBackend_;
+         
+                mockBackend.expectGET('https://trailerfeedapi.herokuapp.com/trailers/1').
+                  respond({"id":1,"title":"Shaping Up with AngularJS song","video":"kkBsNU16O0E","length":"0:27","created_at":"2015-05-12T00:40:59.444Z","updated_at":"2015-05-12T00:40:59.444Z"});
+         
+                var ctrl = $controller('FeedController', {$scope: scope});
+                
+                mockBackend.flush();  
+                
+                expect(ctrl.trailer.length).toEqual("0:27");
+                expect(ctrl.trailer.video).toEqual("kkBsNU16O0E");
+                expect(ctrl.trailer.title).toEqual("Shaping Up with AngularJS song");
+          }));
+ 
     });
 });
