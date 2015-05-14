@@ -4,7 +4,7 @@
 	angular
 		.module('app.api')
 			.constant('api_constants', {
-				API_GET: 'https://trailerfeedapi.herokuapp.com/trailers'
+				API_GET: 'https://trailerfeedapi.herokuapp.com/api/v1/trailers'
 		 	});
 
 })();

@@ -10,7 +10,7 @@ describe('see if a wild youtube appears', function() {
                 var scope = $rootScope.$new();
                 var mockBackend = _$httpBackend_;
          
-                mockBackend.expectGET('https://trailerfeedapi.herokuapp.com/trailers/1').
+                mockBackend.expectGET('https://trailerfeedapi.herokuapp.com/api/v1/trailers/1').
                   respond({"id":1,"title":"Shaping Up with AngularJS song","video":"kkBsNU16O0E","length":"0:27","created_at":"2015-05-12T00:40:59.444Z","updated_at":"2015-05-12T00:40:59.444Z"});
          
                 var ctrl = $controller('FeedController', {$scope: scope});
