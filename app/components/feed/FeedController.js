@@ -4,12 +4,13 @@
 		.module('app.feed')
 		.controller('FeedController', FeedController);
 
-		FeedController.$inject = ['$scope', 'apiservice'];
+		FeedController.$inject = ['$scope', 'apiservice', "$stateParams"];
 
-		function FeedController($scope, apiservice){
+		function FeedController($scope, apiservice, $stateParams){
 			var vm = this;
 			vm.trailer;
-			vm.id = 1;
+
+			vm.id = $stateParams.id === undefined ? 1 : $stateParams.id;
 
 			getTrailer(vm.id);
 
@@ -19,11 +20,14 @@
 
 			$scope.$on('youtube.player.ended', function ($event, player) {
 				//Todo: Change to get 10, cycle through & add pagination to API
-				vm.id = vm.id + 1;
+				vm.id++;
+				vm.previous = vm.trailer.id;
 				getTrailer(vm.id);
 
-				$scope.vars = {
-					autoplay: 1
+				if(vm.previous === vm.trailer.id){
+					$scope.vars = {
+						autoplay: 1
+					}	
 				}
 
 			    player.playVideo();

@@ -8,9 +8,7 @@
 		function youtubeFeed(){
 			var directive = {
 				restrict: 'E',
-				templateUrl:'components/feed/feed.html',
-				controller: 'FeedController',
-				controllerAs: 'vm'
+				templateUrl:'components/feed/feed.html'
 			}
 			return directive;
 		}

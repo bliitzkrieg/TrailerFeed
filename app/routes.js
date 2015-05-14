@@ -12,7 +12,15 @@
 		$stateProvider
 		    .state('index', {
 		      		url: "/",
-		      		templateUrl: "partials/home.html"
-		})
+		      		controller: "FeedController",
+		      		controllerAs: "vm",
+		      		templateUrl: "partials/video.html"
+			})
+			.state('video', {
+					url: "/video/:id",
+					controller: "FeedController",
+					controllerAs: "vm",
+					templateUrl: "partials/video.html"
+			});
 	}
 })();
