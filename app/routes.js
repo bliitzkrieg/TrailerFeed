@@ -14,13 +14,13 @@
 		      		url: "/",
 		      		controller: "FeedController",
 		      		controllerAs: "vm",
-		      		templateUrl: "partials/video.html"
+		      		templateUrl: "partials/trailer.html"
 			})
-			.state('video', {
-					url: "/video/:id",
+			.state('trailer', {
+					url: "/trailer/:id",
 					controller: "FeedController",
 					controllerAs: "vm",
-					templateUrl: "partials/video.html"
+					templateUrl: "partials/trailer.html"
 			});
 	}
 })();
