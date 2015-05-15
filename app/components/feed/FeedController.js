@@ -34,19 +34,23 @@
 
 			function getTrailers(pageNo){
 				pageNo = typeof pageNo !== 'undefined' ? pageNo : 1;
-				return apiservice.getTrailers().query({page: pageNo});//.$promise.then(callback);
+				return apiservice.getTrailers().query({page: pageNo});
 			}
 
 			$scope.$on('youtube.player.ended', function ($event, player) {
-				vm.trailers = _.drop(vm.trailers, 1);
 
-				if(vm.trailers.length == 0){
-					//Fetch 25 more and append to history service
+				if(!$stateParams.id){
+					vm.trailers = _.drop(vm.trailers, 1);
+
+					if(vm.trailers.length == 0){
+						//Fetch 25 more and append to history service
+					}
+
+					vm.trailer = _.first(vm.trailers);
+
+				    player.playVideo();
 				}
-
-				vm.trailer = _.first(vm.trailers);
-
-			    player.playVideo();
+				
 			});
 		}
 
