@@ -23,6 +23,7 @@
     "angular-ui-router": "latest",
     "jquery": ">= 1.9.1",
     "lodash": "latest",
+    "requirejs": "latest",
     "bootstrap": "latest",
     "angular-youtube-mb": "~1.0.2"
   }
